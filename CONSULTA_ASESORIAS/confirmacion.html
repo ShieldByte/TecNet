@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Solicitud Recibida</title>
+    <link rel="stylesheet" href="confirmacion.css">
+</head>
+
+<body>
+    <div class="confirm-container">
+        <div class="icon-success">✓</div>
+
+        <h1>Tu solicitud fue recibida</h1>
+        <p class="subtitle">Nuestro equipo revisará la información y un especialista se pondrá en contacto contigo por
+            correo electrónico.</p>
+
+        <ul class="checklist">
+            <li><span class="check">✓</span> Tu solicitud fue registrada correctamente.</li>
+            <li><span class="check">✓</span> La información será revisada por nuestro equipo.</li>
+            <li><span class="check">✓</span> Un especialista se pondrá en contacto usando tus datos.</li>
+        </ul>
+
+        <!-- Resumen -->
+        <div class="summary-card">
+            <h3>Resumen de tu solicitud</h3>
+            <div class="summary-row"><span>Nombre</span><strong id="res-nombre">Laura Méndez</strong></div>
+            <div class="summary-row"><span>Tipo de necesidad</span><strong id="res-tipo">Equipos y redes</strong></div>
+            <div class="summary-row"><span>Nivel de urgencia</span><strong id="res-urgencia">Media</strong></div>
+            <div class="summary-row"><span>Contacto preferido</span><strong id="res-contacto">Correo
+                    electrónico</strong></div>
+        </div>
+
+        <div class="actions">
+            <a href="index.html" class="btn-outline">Volver al inicio</a>
+            <button class="btn-link">Ver estado de mi solicitud</button>
+        </div>
+    </div>
+    <script src="confirmacion.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+:root {
+  --bg-color: #f7f5f0;
+  --card-bg: #ffffff;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --primary: #0e7490;
+  --primary-hover: #155e75;
+  --error-bg: #fdf2f2;
+  --error-border: #f87171;
+  --error-text: #991b1b;
+  --border-color: #e5e7eb;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: system-ui, -apple-system, sans-serif;
+  color: var(--text-main);
+  margin: 0;
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+.subtitle { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; }
+
+/* Stepper */
+.stepper { display: flex; gap: 16px; margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); }
+.step { display: flex; align-items: center; gap: 8px; }
+.step.active { color: var(--text-main); font-weight: 600; }
+.step-num {
+  width: 20px; height: 20px; border-radius: 50%; background: #e5e7eb;
+  display: flex; align-items: center; justify-content: center; font-size: 0.75rem;
+}
+.step.active .step-num { background: var(--primary); color: white; }
+
+/* Cards */
+.card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.card-sub { color: var(--text-muted); font-size: 0.85rem; margin-top: -8px; margin-bottom: 16px; }
+
+/* Elementos del formulario */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+label { font-size: 0.85rem; font-weight: 600; }
+
+input, select, textarea {
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+input:focus, select:focus, textarea:focus { border-color: var(--primary); }
+
+/* Chips */
+.chips-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.chip {
+  background: #f3f4f6; border: none; padding: 8px 16px; border-radius: 20px;
+  font-size: 0.85rem; cursor: pointer; color: var(--text-main);
+}
+.chip.active { background: var(--primary); color: white; }
+
+.chip-rect {
+  background: white; border: 1px solid var(--border-color); padding: 8px 16px;
+  border-radius: 6px; font-size: 0.85rem; cursor: pointer; flex: 1; text-align: center;
+}
+.chip-rect.active { background: #fef3c7; border-color: #f59e0b; color: #92400e; font-weight: 600; }
+
+/* Radios */
+.radio-group { display: flex; gap: 20px; font-size: 0.9rem; margin-top: 8px; }
+
+/* Footer */
+.form-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; }
+.disclaimer { font-size: 0.75rem; color: var(--text-muted); max-width: 320px; margin: 0; }
+.btn-primary {
+  background: var(--primary); color: white; border: none; padding: 10px 20px;
+  border-radius: 6px; font-weight: 600; cursor: pointer;
+}
+.btn-primary:hover { background: var(--primary-hover); }
+
+/* Caso de Error */
+.alert-banner {
+  background: var(--error-bg); border: 1px solid var(--error-border); color: var(--error-text);
+  padding: 12px 16px; border-radius: 6px; font-size: 0.9rem; margin-bottom: 20px;
+}
+.hidden { display: none; }
+.error-msg { display: none; font-size: 0.75rem; color: var(--error-text); }
+
+/* Formulario Error */
+.form-group.has-error input { border-color: var(--error-border); background-color: #fff5f5; }
+.form-group.has-error label { color: var(--error-text); }
+.form-group.has-error .error-msg { display: block; }

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Solicitar Asesoría</title>
+  <link rel="stylesheet" href="formulario.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Solicitar asesoría</h1>
+    <p class="subtitle">Descríbenos tu problema con tus propias palabras. No necesitas saber qué servicio requieres: un especialista revisará tu caso y te contactará.</p>
+
+    <!-- Stepper -->
+    <div class="stepper">
+      <div class="step active"><span class="step-num">1</span> Datos de contacto</div>
+      <div class="step"><span class="step-num">2</span> Tu necesidad</div>
+      <div class="step"><span class="step-num">3</span> Contacto</div>
+    </div>
+
+    <!-- Alerta de error -->
+    <div id="error-banner" class="alert-banner hidden">
+      <span class="icon">⚠️</span> Revisa los campos marcados antes de continuar.
+    </div>
+
+    <form id="solicitud-form" novalidate>
+      <!-- Datos de Contacto -->
+      <section class="card">
+        <h2>Datos de contacto</h2>
+        <p class="card-sub">Para poder identificarte y responder a tu solicitud.</p>
+
+        <div class="grid-2">
+          <div class="form-group" id="group-nombre">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" placeholder="Ej. Laura Méndez">
+            <span class="error-msg">Este campo es obligatorio.</span>
+          </div>
+
+          <div class="form-group" id="group-email">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" placeholder="laura@empresa.com">
+            <span class="error-msg">Ingresa un correo electrónico válido.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="telefono">Teléfono de contacto</label>
+            <input type="tel" id="telefono" placeholder="Ej. 55 1234 5678">
+          </div>
+
+          <div class="form-group">
+            <label for="empresa">Empresa (si aplica)</label>
+            <input type="text" id="empresa" placeholder="Nombre de tu empresa">
+          </div>
+        </div>
+      </section>
+
+      <!-- Responder Necesidad -->
+      <section class="card">
+        <h2>Tu necesidad</h2>
+        <p class="card-sub">Elige lo que más se parezca a tu situación. Si no estás seguro, elige "No estoy seguro" y lo revisamos contigo.</p>
+
+        <div class="form-group">
+          <label>¿Qué tipo de problema tienes?</label>
+          <div class="chips-group" id="problema-chips">
+            <button type="button" class="chip active" data-value="Equipos y redes">Equipos y redes</button>
+            <button type="button" class="chip" data-value="Seguridad informática">Seguridad informática</button>
+            <button type="button" class="chip" data-value="Servidores">Servidores</button>
+            <button type="button" class="chip" data-value="Consultoría general">Consultoría general</button>
+            <button type="button" class="chip" data-value="No estoy seguro">No estoy seguro</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="servicio">Servicio relacionado (opcional, si lo conoces)</label>
+          <select id="servicio">
+            <option value="" disabled selected>Selecciona un servicio</option>
+            <option value="mantenimiento">Mantenimiento preventivo</option>
+            <option value="soporte">Soporte técnico</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="descripcion">Describe tu problema</label>
+          <textarea id="descripcion" rows="3" placeholder="Ej. Desde hace unos días la conexión a internet se corta varias veces al día..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Nivel de urgencia</label>
+          <div class="chips-group group-urgencia" id="urgencia-chips">
+            <button type="button" class="chip-rect" data-value="Baja">Baja</button>
+            <button type="button" class="chip-rect active" data-value="Media">Media</button>
+            <button type="button" class="chip-rect" data-value="Alta">Alta</button>
+            <button type="button" class="chip-rect" data-value="Urgente">Urgente</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Preferencia de Contacto -->
+      <section class="card border-none">
+        <h2>¿Cómo prefieres que te contactemos?</h2>
+        <div class="radio-group">
+          <label><input type="radio" name="contacto" value="Correo electrónico" checked> Correo electrónico</label>
+          <label><input type="radio" name="contacto" value="Teléfono"> Teléfono</label>
+          <label><input type="radio" name="contacto" value="WhatsApp"> WhatsApp</label>
+        </div>
+
+        <div class="form-footer">
+          <p class="disclaimer">Al enviar, aceptas que nuestro equipo te contacte para dar seguimiento a tu solicitud.</p>
+          <button type="submit" class="btn-primary">Enviar solicitud</button>
+        </div>
+      </section>
+    </form>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
