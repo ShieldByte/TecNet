@@ -2,115 +2,99 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Solicitar Asesoría</title>
-  <link rel="stylesheet" href="formulario.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Servicios de infraestructura TI · TecNeT</title>
+  <meta name="description" content="Catálogo de servicios de infraestructura TI de TecNeT: mantenimiento de equipos y redes, seguridad informática, servidores y consultoría.">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/servicios.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Solicitar asesoría</h1>
-    <p class="subtitle">Descríbenos tu problema con tus propias palabras. No necesitas saber qué servicio requieres: un especialista revisará tu caso y te contactará.</p>
 
-    <!-- Stepper -->
-    <div class="stepper">
-      <div class="step active"><span class="step-num">1</span> Datos de contacto</div>
-      <div class="step"><span class="step-num">2</span> Tu necesidad</div>
-      <div class="step"><span class="step-num">3</span> Contacto</div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">Tec<b>NeT</b></a>
+
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html" aria-current="page">Servicios</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#contacto">Contacto</a>
+        <a class="nav-cta" href="views/solicitar-asesoria.html">Solicitar asesoría</a>
+      </nav>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">Menú</button>
     </div>
+  </header>
 
-    <!-- Alerta de error -->
-    <div id="error-banner" class="alert-banner hidden">
-      <span class="icon">⚠️</span> Revisa los campos marcados antes de continuar.
+  <section class="hero">
+    <div class="container">
+      <h1>Servicios de infraestructura TI</h1>
+      <p class="lead">
+        Consulta los servicios que TecNeT ofrece para instalar, mantener y hacer crecer
+        la infraestructura tecnológica de tu empresa. Puedes filtrar por categoría o
+        buscar por palabra clave.
+      </p>
+
+      <form class="search-bar" id="search-form" role="search">
+        <div class="search-field">
+          <label class="visually-hidden" for="search-input">Buscar servicios</label>
+          <input type="search" id="search-input" placeholder="Buscar servicio">
+        </div>
+        <button type="submit">Buscar</button>
+      </form>
     </div>
+  </section>
 
-    <form id="solicitud-form" novalidate>
-      <!-- Datos de Contacto -->
-      <section class="card">
-        <h2>Datos de contacto</h2>
-        <p class="card-sub">Para poder identificarte y responder a tu solicitud.</p>
+  <section class="catalog" id="catalogo">
+    <div class="container catalog-layout">
 
-        <div class="grid-2">
-          <div class="form-group" id="group-nombre">
-            <label for="nombre">Nombre completo</label>
-            <input type="text" id="nombre" placeholder="Ej. Laura Méndez">
-            <span class="error-msg">Este campo es obligatorio.</span>
-          </div>
+      <aside class="filters">
+        <h2>Categorías</h2>
+        <ul class="filter-list" id="filter-list"></ul>
 
-          <div class="form-group" id="group-email">
-            <label for="email">Correo electrónico</label>
-            <input type="email" id="email" placeholder="laura@empresa.com">
-            <span class="error-msg">Ingresa un correo electrónico válido.</span>
-          </div>
-
-          <div class="form-group">
-            <label for="telefono">Teléfono de contacto</label>
-            <input type="tel" id="telefono" placeholder="Ej. 55 1234 5678">
-          </div>
-
-          <div class="form-group">
-            <label for="empresa">Empresa (si aplica)</label>
-            <input type="text" id="empresa" placeholder="Nombre de tu empresa">
-          </div>
+        <div class="help-box">
+          <strong>¿No sabes qué servicio necesitas?</strong>
+          Describe tu problema y un especialista revisará tu caso.
+          <br><br>
+          <a href="views/solicitar-asesoria.html">Solicitar asesoría</a>
         </div>
-      </section>
+      </aside>
 
-      <!-- Responder Necesidad -->
-      <section class="card">
-        <h2>Tu necesidad</h2>
-        <p class="card-sub">Elige lo que más se parezca a tu situación. Si no estás seguro, elige "No estoy seguro" y lo revisamos contigo.</p>
-
-        <div class="form-group">
-          <label>¿Qué tipo de problema tienes?</label>
-          <div class="chips-group" id="problema-chips">
-            <button type="button" class="chip active" data-value="Equipos y redes">Equipos y redes</button>
-            <button type="button" class="chip" data-value="Seguridad informática">Seguridad informática</button>
-            <button type="button" class="chip" data-value="Servidores">Servidores</button>
-            <button type="button" class="chip" data-value="Consultoría general">Consultoría general</button>
-            <button type="button" class="chip" data-value="No estoy seguro">No estoy seguro</button>
-          </div>
+      <div class="results">
+        <div class="results-head">
+          <h2 id="results-title">Todos los servicios</h2>
+          <span class="count-label" id="results-count">11 servicios</span>
         </div>
 
-        <div class="form-group">
-          <label for="servicio">Servicio relacionado (opcional, si lo conoces)</label>
-          <select id="servicio">
-            <option value="" disabled selected>Selecciona un servicio</option>
-            <option value="mantenimiento">Mantenimiento preventivo</option>
-            <option value="soporte">Soporte técnico</option>
-          </select>
-        </div>
+        <div class="grid" id="services-grid"></div>
+      </div>
 
-        <div class="form-group">
-          <label for="descripcion">Describe tu problema</label>
-          <textarea id="descripcion" rows="3" placeholder="Ej. Desde hace unos días la conexión a internet se corta varias veces al día..."></textarea>
-        </div>
+    </div>
+  </section>
 
-        <div class="form-group">
-          <label>Nivel de urgencia</label>
-          <div class="chips-group group-urgencia" id="urgencia-chips">
-            <button type="button" class="chip-rect" data-value="Baja">Baja</button>
-            <button type="button" class="chip-rect active" data-value="Media">Media</button>
-            <button type="button" class="chip-rect" data-value="Alta">Alta</button>
-            <button type="button" class="chip-rect" data-value="Urgente">Urgente</button>
-          </div>
-        </div>
-      </section>
+  <section class="container" id="contacto">
+    <div class="cta">
+      <h2>¿Tu necesidad abarca varias categorías?</h2>
+      <p>
+        Muchos casos combinan mantenimiento, seguridad y servidores. Cuéntanos tu
+        situación y preparamos una propuesta a la medida.
+      </p>
+      <a href="views/solicitar-asesoria.html">Solicitar una asesoría</a>
+    </div>
+  </section>
 
-      <!-- Preferencia de Contacto -->
-      <section class="card border-none">
-        <h2>¿Cómo prefieres que te contactemos?</h2>
-        <div class="radio-group">
-          <label><input type="radio" name="contacto" value="Correo electrónico" checked> Correo electrónico</label>
-          <label><input type="radio" name="contacto" value="Teléfono"> Teléfono</label>
-          <label><input type="radio" name="contacto" value="WhatsApp"> WhatsApp</label>
-        </div>
+  <footer class="site-footer">
+    <div class="container">
+      <span>TecNeT · Servicios de infraestructura TI</span>
+      <span>
+        <a href="#catalogo">Catálogo</a> ·
+        <a href="views/solicitar-asesoria.html">Asesoría</a>
+      </span>
+    </div>
+  </footer>
 
-        <div class="form-footer">
-          <p class="disclaimer">Al enviar, aceptas que nuestro equipo te contacte para dar seguimiento a tu solicitud.</p>
-          <button type="submit" class="btn-primary">Enviar solicitud</button>
-        </div>
-      </section>
-    </form>
-  </div>
+  <div id="modal-root"></div>
 
-  <script src="main.js"></script>
+  <script src="data/servicios.js"></script>
+  <script src="js/servicios.js"></script>
 </body>
 </html>

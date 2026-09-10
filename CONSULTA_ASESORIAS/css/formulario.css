@@ -1,28 +1,16 @@
-:root {
-  --bg-color: #f7f5f0;
-  --card-bg: #ffffff;
-  --text-main: #1f2937;
-  --text-muted: #6b7280;
-  --primary: #0e7490;
-  --primary-hover: #155e75;
-  --error-bg: #fdf2f2;
-  --error-border: #f87171;
-  --error-text: #991b1b;
-  --border-color: #e5e7eb;
-}
+/* Formulario de solicitud de asesoría · depende de base.css */
 
 body {
-  background-color: var(--bg-color);
-  font-family: system-ui, -apple-system, sans-serif;
-  color: var(--text-main);
-  margin: 0;
   padding: 40px 20px;
 }
 
 .container {
   max-width: 680px;
-  margin: 0 auto;
 }
+
+.back-link { margin-bottom: 20px; font-size: 0.85rem; }
+.back-link a { color: var(--primary); text-decoration: none; font-weight: 600; }
+.back-link a:hover { text-decoration: underline; }
 
 h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
 .subtitle { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; }
