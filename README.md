@@ -1,7 +1,7 @@
 # Consulta de servicios de infraestructura TI
 
 Sitio estático (HTML, CSS y JavaScript) para consultar el catálogo de servicios
-de infraestructura TI y solicitar una asesoría.
+de infraestructura TI y solicitar una asesoría. 
 
 ## Estructura
 
