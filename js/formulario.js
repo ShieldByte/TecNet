@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   setupChipSelection('problema-chips');
-  setupChipSelection('urgencia-chips');
 
   const form = document.getElementById('solicitud-form');
   const errorBanner = document.getElementById('error-banner');
@@ -49,14 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       // Capturar los valores activos/seleccionados
       const problemaChip = document.querySelector('#problema-chips .chip.active');
-      const urgenciaChip = document.querySelector('#urgencia-chips .chip-rect.active');
       const contactoRadio = document.querySelector('input[name="contacto"]:checked');
 
       // Objeto con la información del formulario
       const formData = {
         nombre: nombreInput.value.trim(),
         tipoProblema: problemaChip ? problemaChip.dataset.value : 'No especificado',
-        urgencia: urgenciaChip ? urgenciaChip.dataset.value : 'No especificada',
         contacto: contactoRadio ? contactoRadio.value : 'Correo electrónico'
       };
 

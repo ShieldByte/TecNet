@@ -8,12 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Asignar los datos a los elementos correspondientes
         const resNombre = document.getElementById('res-nombre');
         const resTipo = document.getElementById('res-tipo');
-        const resUrgencia = document.getElementById('res-urgencia');
         const resContacto = document.getElementById('res-contacto');
 
         if (resNombre) resNombre.textContent = data.nombre;
         if (resTipo) resTipo.textContent = data.tipoProblema;
-        if (resUrgencia) resUrgencia.textContent = data.urgencia;
         if (resContacto) resContacto.textContent = data.contacto;
     }
 });
