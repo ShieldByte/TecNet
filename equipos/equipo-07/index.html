@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reservación de asesoría - TecNet</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <h1>TecNet</h1>
+    <p class="subtitulo">Reservación de asesoría TI</p>
+
+    <div class="servicio">
+        <label for="servicio">Selecciona un servicio:</label>
+
+        <select id="servicio">
+            <option value="500">Configuración de red local - $500</option>
+            <option value="400">Mantenimiento preventivo - $400</option>
+            <option value="650">Seguridad informática - $650</option>
+            <option value="450">Consultoría TI - $450</option>
+        </select>
+    </div>
+
+    <h2>Selecciona un horario</h2>
+
+    <div class="horarios">
+
+        <div class="fila">
+            <span>Lunes</span>
+            <button class="horario" data-horario="Lunes - 09:00">09:00</button>
+            <button class="horario" data-horario="Lunes - 11:00">11:00</button>
+            <button class="horario ocupado" data-horario="Lunes - 13:00">13:00</button>
+            <button class="horario" data-horario="Lunes - 16:00">16:00</button>
+        </div>
+
+        <div class="fila">
+            <span>Martes</span>
+            <button class="horario ocupado" data-horario="Martes - 09:00">09:00</button>
+            <button class="horario" data-horario="Martes - 11:00">11:00</button>
+            <button class="horario" data-horario="Martes - 13:00">13:00</button>
+            <button class="horario" data-horario="Martes - 16:00">16:00</button>
+        </div>
+
+        <div class="fila">
+            <span>Miércoles</span>
+            <button class="horario" data-horario="Miércoles - 09:00">09:00</button>
+            <button class="horario" data-horario="Miércoles - 11:00">11:00</button>
+            <button class="horario ocupado" data-horario="Miércoles - 13:00">13:00</button>
+            <button class="horario" data-horario="Miércoles - 16:00">16:00</button>
+        </div>
+
+        <div class="fila">
+            <span>Jueves</span>
+            <button class="horario" data-horario="Jueves - 09:00">09:00</button>
+            <button class="horario" data-horario="Jueves - 11:00">11:00</button>
+            <button class="horario" data-horario="Jueves - 13:00">13:00</button>
+            <button class="horario ocupado" data-horario="Jueves - 16:00">16:00</button>
+        </div>
+
+    </div>
+
+    <div class="leyenda">
+        <div><span class="ejemplo disponible"></span> Disponible</div>
+        <div><span class="ejemplo seleccionado"></span> Seleccionado</div>
+        <div><span class="ejemplo ocupado"></span> No disponible</div>
+    </div>
+
+    <div class="resumen">
+
+        <h2>Tu reservación</h2>
+
+        <p>
+            Servicio:
+            <strong id="nombreServicio">Configuración de red local</strong>
+        </p>
+
+        <p>
+            Horario:
+            <strong id="horarioSeleccionado">Ninguno</strong>
+        </p>
+
+        <p>
+            Costo:
+            $<strong id="total">0</strong>
+        </p>
+
+        <button id="reservar">Reservar asesoría</button>
+
+        <p id="mensaje"></p>
+
+    </div>
+
+</div>
+
+<script src="reto.js"></script>
+
+</body>
+</html>
