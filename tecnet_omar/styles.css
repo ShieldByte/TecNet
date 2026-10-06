@@ -1,0 +1,80 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.box {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 20px;
+  width: 320px;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.sub {
+  color: #666;
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+}
+
+.campo, .opciones, .resultado {
+  margin-bottom: 15px;
+}
+
+.campo input {
+  width: 60px;
+  padding: 4px;
+}
+
+.opciones label {
+  display: block;
+  font-size: 0.9rem;
+  margin: 4px 0;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+  padding: 6px 12px;
+}
+
+#btn-generar {
+  width: 100%;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+#btn-generar:hover {
+  background: #0056b3;
+}
+
+.resultado {
+  display: flex;
+  gap: 6px;
+}
+
+#resultado {
+  flex: 1;
+  padding: 6px;
+  font-family: monospace;
+}
+
+#mensaje {
+  font-size: 0.85rem;
+  color: green;
+  display: block;
+  text-align: center;
+}
