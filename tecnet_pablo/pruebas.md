@@ -150,3 +150,88 @@ solo las primeras 64, avisándolo en el resumen.
 
 ### Estado
 Prueba correcta
+
+---
+
+# Conflicto controlado de Git
+
+Para demostrar la resolución de conflictos se creó una rama temporal local
+llamada `conflicto_pablo` a partir de `tecnet_pablo`. Ambas ramas modificaron
+**la misma línea** de `tecnet_pablo/index.html`: la etiqueta del encabezado.
+
+Versión original (en las dos ramas):
+
+```html
+<p class="etiqueta">TecNet · Herramientas de red</p>
+```
+
+Cambio en `conflicto_pablo`:
+
+```html
+<p class="etiqueta">TecNet · Soporte de redes</p>
+```
+
+Cambio en `tecnet_pablo`:
+
+```html
+<p class="etiqueta">TecNet · Herramientas para administradores de red</p>
+```
+
+Al ejecutar desde `tecnet_pablo`:
+
+```bash
+git merge conflicto_pablo
+```
+
+Git respondió:
+
+```text
+Auto-merging tecnet_pablo/index.html
+CONFLICT (content): Merge conflict in tecnet_pablo/index.html
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+Y marcó el archivo así:
+
+```text
+<<<<<<< HEAD
+            <p class="etiqueta">TecNet · Herramientas para administradores de red</p>
+=======
+            <p class="etiqueta">TecNet · Soporte de redes</p>
+>>>>>>> conflicto_pablo
+```
+
+- Entre `<<<<<<< HEAD` y `=======` está la versión de la rama actual (`tecnet_pablo`).
+- Entre `=======` y `>>>>>>> conflicto_pablo` está la versión de la rama que se intenta integrar.
+
+## Resolución
+
+Se revisaron las dos versiones y se decidió combinarlas en una sola etiqueta,
+eliminando las marcas de conflicto:
+
+```html
+<p class="etiqueta">TecNet · Herramientas y soporte de redes</p>
+```
+
+Después se verificó que la página siguiera funcionando y se terminó el merge:
+
+```bash
+git add tecnet_pablo/index.html
+git commit -m "merge: resuelve conflicto controlado en el encabezado de index.html"
+```
+
+## Resultado
+
+El conflicto quedó resuelto y el historial muestra las dos ramas unidas por el
+commit de merge. La rama `conflicto_pablo` fue solo de práctica y no se subió a
+GitHub.
+
+## Cómo evitar conflictos en el equipo
+
+- Cada integrante trabaja **solo en su carpeta** (`tecnet_pablo/`), sin tocar la
+  raíz del proyecto ni las carpetas de los demás.
+- Antes de crear la rama se actualiza `main` (`git pull`), y si `main` cambia
+  se integra con `git fetch origin` y `git merge origin/main` antes del PR.
+- Commits pequeños y frecuentes con mensajes claros.
+- Todo entra a `main` por Pull Request revisado por otro compañero; nunca se
+  usa push forzado sobre `main`.
