@@ -178,5 +178,50 @@ con lo esperado.
 
 # Conflicto controlado de Git
 
-Esta sección se completará posteriormente al realizar el conflicto controlado
-solicitado en la práctica.
+Para demostrar la resolución de conflictos en Git se creó una rama temporal
+llamada `conflicto_christian`.
+
+Se utilizó el archivo `conflicto-demo.txt`, cuya versión inicial contenía:
+
+> Estado del proyecto: Version inicial
+
+Posteriormente, desde la rama `conflicto_christian`, se modificó la misma línea
+con el siguiente contenido:
+
+> Estado del proyecto: Modificado desde rama conflicto
+
+Mientras que desde la rama `tecnet_christian` se modificó como:
+
+> Estado del proyecto: Modificado desde tecnet_christian
+
+Al ejecutar:
+
+```bash
+git merge conflicto_christian
+'''
+
+Git detectó que ambas ramas habían modificado la misma línea del archivo y
+generó un conflicto de contenido.
+Git mostró el archivo con las siguientes marcas:
+
+<<<<<<< HEAD
+Estado del proyecto: Modificado desde tecnet_christian
+=======
+Estado del proyecto: Modificado desde rama conflicto
+>>>>>>> conflicto_christian
+
+Para resolver el conflicto se revisaron ambas versiones y se decidió utilizar
+una versión final acordada:
+Estado del proyecto: Conflicto resuelto entre tecnet_christian y conflicto_christian
+
+Resultado
+
+El conflicto fue resuelto correctamente y las dos ramas quedaron integradas
+sin afectar el funcionamiento del Gestor de calificaciones.
+
+Aprendizaje
+
+Esta prueba permitió comprender cómo Git identifica modificaciones
+incompatibles en una misma línea, cómo interpretar las marcas HEAD,
+======= y >>>>>>>, y cómo resolver manualmente el contenido antes de
+finalizar un merge.
