@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reto TecNet - Subcadena Mínima</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="card">
+    <div class="card-header">
+      <h1>Subcadena Mínima</h1>
+      <p>Encuentra la subcadena más corta que contiene todos los caracteres requeridos.</p>
+    </div>
+
+    <form id="retoForm" class="form-container">
+      <div class="input-group">
+        <label for="muestra">Muestra (caracteres a buscar):</label>
+        <input type="text" id="muestra" placeholder="Ej. nasa" required autocomplete="off">
+      </div>
+
+      <div class="input-group">
+        <label for="palabra">Palabra base (cadena principal):</label>
+        <input type="text" id="palabra" placeholder="Ej. antesala" required autocomplete="off">
+      </div>
+
+      <button type="submit" id="btnCalcular">Buscar Subcadena</button>
+    </form>
+
+    <div class="result-container hidden" id="resultContainer">
+      <span class="result-label">Resultado:</span>
+      <span class="result-value" id="resultadoTexto"></span>
+    </div>
+  </div>
+
+  <script src="reto.js"></script>
+  <script>
+    // Evento para procesar el formulario e invocar la función de reto.js
+    document.getElementById('retoForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const muestra = document.getElementById('muestra').value.trim();
+      const palabra = document.getElementById('palabra').value.trim();
+      const resultContainer = document.getElementById('resultContainer');
+      const resultadoTexto = document.getElementById('resultadoTexto');
+
+      // Llamada a la función de reto.js
+      const resultado = cadMinima(muestra, palabra);
+
+      if (resultado) {
+        resultadoTexto.textContent = resultado;
+        resultContainer.classList.remove('error', 'hidden');
+      } else {
+        resultadoTexto.textContent = "No se encontró ninguna subcadena válida.";
+        resultContainer.classList.add('error');
+        resultContainer.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
