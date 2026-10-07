@@ -1,0 +1,481 @@
+/* =========================
+   CONFIGURACIÓN GENERAL
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dark: #111827;
+    --dark-light: #1f2937;
+
+    --green: #0f766e;
+    --green-dark: #115e59;
+    --green-light: #ccfbf1;
+
+    --background: #f3f4f6;
+    --white: #ffffff;
+
+    --text: #1f2937;
+    --text-light: #6b7280;
+
+    --border: #d1d5db;
+
+    --danger: #dc2626;
+    --danger-dark: #b91c1c;
+}
+
+
+/* =========================
+   FONDO
+   ========================= */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    min-height: 100vh;
+
+    padding: 40px 20px;
+
+    background: linear-gradient(
+        135deg,
+        #111827,
+        #1f2937,
+        #0f766e
+    );
+
+    color: var(--text);
+}
+
+
+/* =========================
+   CONTENEDOR PRINCIPAL
+   ========================= */
+
+.contenedor {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    background-color: var(--white);
+
+    border-radius: 18px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.30);
+}
+
+
+/* =========================
+   ENCABEZADO
+   ========================= */
+
+h1 {
+    text-align: center;
+
+    color: var(--dark);
+
+    font-size: 32px;
+
+    margin-bottom: 8px;
+}
+
+.descripcion {
+    text-align: center;
+
+    color: var(--text-light);
+
+    margin-bottom: 32px;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   TÍTULOS
+   ========================= */
+
+h2 {
+    font-size: 19px;
+
+    color: var(--dark);
+
+    margin-bottom: 18px;
+
+    padding-left: 10px;
+
+    border-left: 4px solid var(--green);
+}
+
+
+/* =========================
+   SECCIONES
+   ========================= */
+
+.formulario,
+.filtros,
+.lista,
+.resumen {
+    margin-bottom: 28px;
+}
+
+
+/* =========================
+   FORMULARIO
+   ========================= */
+
+.formulario {
+    background-color: #f9fafb;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+.campo {
+    margin-bottom: 18px;
+}
+
+.campo label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-weight: bold;
+
+    color: var(--dark);
+}
+
+.campo input {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+.campo input:focus {
+    border-color: var(--green);
+
+    box-shadow:
+        0 0 0 3px rgba(15, 118, 110, 0.15);
+}
+
+
+/* =========================
+   BOTONES GENERALES
+   ========================= */
+
+button {
+    border: none;
+
+    border-radius: 7px;
+
+    padding: 11px 18px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        transform 0.1s;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================
+   BOTÓN AGREGAR
+   ========================= */
+
+#btnAgregar {
+    background-color: var(--green);
+
+    color: white;
+
+    box-shadow:
+        0 4px 10px rgba(15, 118, 110, 0.25);
+}
+
+#btnAgregar:hover {
+    background-color: var(--green-dark);
+}
+
+
+/* =========================
+   MENSAJES
+   ========================= */
+
+#mensaje {
+    min-height: 20px;
+
+    margin-top: 15px;
+
+    font-weight: bold;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   FILTROS
+   ========================= */
+
+.filtros {
+    background-color: #f9fafb;
+
+    padding: 22px;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+.filtros h2 {
+    text-align: left;
+}
+
+.btnFiltro {
+    background-color: #e5e7eb;
+
+    color: var(--dark);
+
+    margin: 4px;
+}
+
+.btnFiltro:hover {
+    background-color: #d1d5db;
+}
+
+.btnFiltro.activo {
+    background-color: var(--green);
+
+    color: white;
+}
+
+
+/* =========================
+   TABLA
+   ========================= */
+
+.lista {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: separate;
+
+    border-spacing: 0;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+thead {
+    background-color: var(--dark);
+
+    color: white;
+}
+
+th {
+    padding: 14px;
+
+    text-align: center;
+
+    font-size: 14px;
+}
+
+td {
+    padding: 13px;
+
+    text-align: center;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    font-size: 14px;
+}
+
+tbody tr {
+    transition: background-color 0.2s;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+tbody tr:hover {
+    background-color: #ecfdf5;
+}
+
+
+/* =========================
+   ESTADOS
+   ========================= */
+
+.aprobado {
+    color: var(--green);
+
+    font-weight: bold;
+
+    background-color: #ccfbf1;
+}
+
+.reprobado {
+    color: #dc2626;
+
+    font-weight: bold;
+
+    background-color: #fee2e2;
+}
+
+
+/* =========================
+   BOTÓN ELIMINAR
+   ========================= */
+
+.btnEliminar {
+    background-color: #dc2626;
+
+    color: white;
+
+    padding: 8px 13px;
+}
+
+.btnEliminar:hover {
+    background-color: #b91c1c;
+}
+
+
+/* =========================
+   RESUMEN
+   ========================= */
+
+.resumen {
+    background-color: var(--dark);
+
+    color: white;
+
+    border-radius: 12px;
+
+    padding: 24px;
+
+    text-align: center;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+.resumen h2 {
+    color: white;
+
+    text-align: left;
+
+    border-left-color: var(--green);
+}
+
+.resumen p {
+    display: inline-block;
+
+    min-width: 220px;
+
+    margin: 7px;
+
+    padding: 18px;
+
+    border-radius: 10px;
+
+    background-color: var(--dark-light);
+
+    color: #d1d5db;
+}
+
+#promedio,
+#totalEstudiantes {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #5eead4;
+
+    font-size: 26px;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 650px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .contenedor {
+        padding: 22px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .formulario {
+        padding: 18px;
+    }
+
+    .btnFiltro {
+        display: block;
+
+        width: 100%;
+
+        margin: 7px 0;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    .resumen p {
+        display: block;
+
+        width: 100%;
+
+        min-width: 0;
+
+        margin: 8px 0;
+    }
+}
