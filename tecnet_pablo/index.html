@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de subredes IPv4 · TecNet</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="contenedor">
+
+        <header class="encabezado">
+            <p class="etiqueta">TecNet · Herramientas de red</p>
+            <h1>Calculadora de subredes IPv4</h1>
+            <p class="descripcion">
+                Escribe una dirección IP y su máscara para obtener la red, el broadcast,
+                el rango de hosts y la división en subredes.
+            </p>
+        </header>
+
+        <!-- Entrada de datos -->
+        <section class="tarjeta">
+            <h2>Datos de la red</h2>
+
+            <form id="formulario" class="formulario" novalidate>
+                <div class="campo">
+                    <label for="ip">Dirección IP</label>
+                    <input type="text" id="ip" placeholder="192.168.1.10" autocomplete="off" spellcheck="false">
+                </div>
+
+                <div class="campo campo-corto">
+                    <label for="mascara">Máscara</label>
+                    <input type="text" id="mascara" placeholder="/24 o 255.255.255.0" autocomplete="off" spellcheck="false">
+                </div>
+
+                <button type="submit" class="boton-principal">Calcular</button>
+            </form>
+
+            <p class="ayuda">También puedes escribir todo junto en el campo de IP: <code>10.0.5.20/22</code></p>
+
+            <div class="ejemplos">
+                <span>Ejemplos:</span>
+                <button type="button" data-ejemplo="192.168.1.10 /24">192.168.1.10/24</button>
+                <button type="button" data-ejemplo="172.16.45.130 255.255.240.0">172.16.45.130 · 255.255.240.0</button>
+                <button type="button" data-ejemplo="10.0.5.20 /22">10.0.5.20/22</button>
+                <button type="button" data-ejemplo="200.33.150.7 /30">200.33.150.7/30</button>
+            </div>
+
+            <p id="mensaje" class="mensaje" role="status"></p>
+        </section>
+
+        <!-- Resultados -->
+        <section id="resultado" class="tarjeta" hidden>
+            <h2>Resultado</h2>
+
+            <div class="datos">
+                <div class="dato destacado"><span>Dirección de red</span><strong id="resRed"></strong></div>
+                <div class="dato destacado"><span>Broadcast</span><strong id="resBroadcast"></strong></div>
+                <div class="dato destacado"><span>Hosts utilizables</span><strong id="resHosts"></strong></div>
+                <div class="dato ancho"><span>Rango de hosts</span><strong id="resRango"></strong></div>
+                <div class="dato"><span>IP analizada</span><strong id="resIp"></strong></div>
+                <div class="dato"><span>Máscara</span><strong id="resMascara"></strong></div>
+                <div class="dato"><span>Wildcard</span><strong id="resWildcard"></strong></div>
+                <div class="dato"><span>Total de direcciones</span><strong id="resTotal"></strong></div>
+                <div class="dato"><span>Clase</span><strong id="resClase"></strong></div>
+                <div class="dato"><span>Tipo</span><strong id="resTipo"></strong></div>
+            </div>
+
+            <h3>Vista en binario</h3>
+            <div class="binario">
+                <span class="binario-titulo">IP</span><code id="binIp"></code>
+                <span class="binario-titulo">Máscara</span><code id="binMascara"></code>
+            </div>
+            <p class="leyenda">
+                <span class="muestra bit-red">1</span> bits de red
+                <span class="muestra bit-host">0</span> bits de host
+            </p>
+        </section>
+
+        <!-- Subdivisión -->
+        <section id="subdividir" class="tarjeta" hidden>
+            <h2>Dividir en subredes</h2>
+
+            <div class="campo">
+                <label for="nuevoPrefijo">Nuevo prefijo</label>
+                <select id="nuevoPrefijo"></select>
+            </div>
+
+            <p id="resumenSubredes" class="resumen"></p>
+
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr><th>#</th><th>Subred</th><th>Rango de hosts</th><th>Broadcast</th></tr>
+                    </thead>
+                    <tbody id="tablaSubredes"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer id="pieReto" class="pie"></footer>
+    </main>
+
+    <script src="ficha.js"></script>
+    <script src="reto.js"></script>
+</body>
+</html>
